@@ -1,0 +1,290 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} 
+
+.mainBoard {
+  position: absolute;
+  top: 0;
+  margin-top: 100px;
+  left: 0;
+  right: 0;
+}
+
+.headerApp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding-top: 40px;
+  max-height: 125px
+}
+
+.headerApp-logo{
+  width: 300px;
+}
+
+.header-board{
+  margin-top: 25px;
+}
+
+.row-board {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-width: 110px;
+}
+
+.arrow-board {
+  display: flex;
+  padding-bottom: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.arrow-board-hide {
+  display: none;
+}
+
+.square {
+  width: 130px;
+  height: 130px;
+  border-radius: 10px;
+  margin: 2px;
+}
+
+.pokemon_item{
+  padding: 2px;
+}
+
+.pokemon_name{
+  font-size: 13px;
+}
+
+.pagination-desktop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40%;
+  margin: 0 auto;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.pagination-mobile {
+  display: none;
+}
+
+.pagination-mobile button {
+  margin-bottom: 10px;
+}
+
+.nextPages_mobile {
+  background-color: #3b4cca;
+  color: white;  
+  height: 50px;
+  border: none;
+}
+
+.previousPages_mobile{
+  background-color: #ED322A;
+  color: white;
+  height: 50px;
+  border: none;
+}
+
+.pagination_number{
+  padding: 10px 6px 10px 6px;
+  cursor: pointer;
+}
+
+.page_active{
+  font-size: 18px;
+  color: white;
+  background-color: #3b4cca;
+  border-radius: 20px;
+}
+
+.searcher_box {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.searcher {
+  margin-bottom: 15px;
+}
+
+.searcher_input {
+  width: 50%;
+  height: 30px;
+  border: 1px solid #a6a6a7;
+  border-radius: 15px;
+  padding-left: 10px;
+  -webkit-box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.09);
+  -moz-box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.09);
+  box-shadow: 1px 4px 5px 0px rgba(0,0,0,0.09);
+}
+
+.headerApp{
+  animation: fadeIn 1.5s ease 0s 1 normal forwards;
+}
+
+/* PlayingBoard's animations*/
+
+.no-showPlayingBoard{
+  display: none; 
+}
+
+.showPlayingBoard{
+  animation: fadeIn 1s ease 0s 1 normal forwards;
+  animation-delay: 0.5s;
+  margin-top: 60px;
+}
+
+/* SelectorBoard's animations*/
+
+.showSelectorBoard{
+  animation: fadeIn 1.5s ease 0s 1 normal forwards;
+}
+
+.no-showSelectorBoard{
+  animation: fadeOut 1s ease 0s 1 normal forwards;
+}
+
+.no-showPagination{
+  display: none; 
+}
+
+.return-search-button {
+  background: #135FAE;
+  border: none;
+  color: white;
+  margin-top: 10px;
+}
+
+.return-search-button:hover {
+  background:#ED322A ;
+}
+
+.loading{
+  margin-top: 40px;
+}
+
+.status {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.resultGame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.resultGame h3{
+  font-size: 20px;
+}
+
+.resultGame button{
+  margin-top: 20px;
+  background-color: #ED322A;
+  color: white;
+  border: none
+}
+
+.resultGame button:hover{
+  font-weight: bold;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) {
+  .row-board{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .pagination-desktop{
+    display: none;
+  }
+
+  .pagination-mobile {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 25px;
+  }
+
+  .square {
+    width: 98px;
+    height: 98px;
+  }
+}
+
+@media (min-width: 472px) and (max-width: 629px) {
+  .pokemon_item{
+    width: 215px;
+  }
+}
+
+@media (max-width: 472px) {
+  .searcher_box{
+    width: 100%;
+  }
+
+  img.headerApp-logo {
+      width: 250px;
+    } 
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .pagination-desktop{
+    display: none;
+  }
+
+  .pagination-mobile {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 25px;
+  }
+  
+  .square {
+    width: 85px;
+    height: 85px;
+  }}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0.1;
+		transform: translateX(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+}
+
