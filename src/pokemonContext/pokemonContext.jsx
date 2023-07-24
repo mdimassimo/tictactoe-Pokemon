@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState} from "react";
 import Confetti from 'react-confetti';
 
 export const PokemonContext = createContext();

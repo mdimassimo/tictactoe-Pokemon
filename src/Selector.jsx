@@ -129,7 +129,7 @@ export default function SelectorBoard() {
   const [currentTopPagination, setCurrentTopPagination] = useState(10);
   const {handlePokemonSelection, playerPokemon1, playerPokemon2, resetBoard} = useContext(PokemonContext);
   const showBoard = Object.keys(playerPokemon2).length > 0;
-  const showArrow = Object.keys(playerPokemon1).length > 0;
+  const showArrow = Object.keys(playerPokemon1).length > 0 && currentPlayer == 2;
   const [hideBlock, setHideBlock] = useState(false);
   const numRows = 4;
   const numItemsPerRow = 4;//->after, 5
