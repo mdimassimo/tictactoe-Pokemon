@@ -22,7 +22,7 @@ function Item({ image, name, onClickSelectPokemon }) {
             const target = e.target || {};
             target.onerror = null;
             target.src =
-              "https://toppng.com//public/uploads/preview/error-handling-windows-xp-error-logo-11563210401mwwnodn9yn.png";
+              "https://cdn-icons-png.flaticon.com/512/148/148766.png";
           }}
         />
       </button>
