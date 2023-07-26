@@ -21,10 +21,9 @@ Proyecto realizado con React, basado en el ejercicio de '3 en línea' que hay en
 
 ![Search](https://i.postimg.cc/WtLztPLt/searcher-Real-Time.png)
 
-
 ## Pagination (Desktop)
 
-![Pagintation Desktop](https://i.postimg.cc/PJ8Nt57B/desktop-Pagination.png)
+![PagintationDesktop](https://i.postimg.cc/PJ8Nt57B/desktop-Pagination.png)
 
 ## Game
 
