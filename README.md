@@ -13,10 +13,6 @@ Proyecto realizado con React, basado en el ejercicio de '3 en línea' que hay en
 
 ## Imágenes del proyecto
 
-### Home (Desktop)
-
-![Home Desktop](https://i.postimg.cc/ydxkbPy6/desktop-Home.png)
-
 ## Search
 
 ![Search](https://i.postimg.cc/WtLztPLt/searcher-Real-Time.png)
