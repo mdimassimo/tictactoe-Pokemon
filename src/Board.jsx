@@ -62,8 +62,6 @@ export default function Board() {
     setMovePlayers(Array(9).fill(null));
     setPlayer1Next(true);
     setTie(false);
-    setPlayer1Move(0)
-    setPlayer2Move(0)
   }
 
   useEffect(()=>{
