@@ -208,7 +208,7 @@ export default function SelectorBoard() {
   }
 
   const clickSelectPokemon = (selectedImage, selectedName) => {
-    handlePokemonSelection({ selectedImage, selectedName }, currentPlayer);
+    handlePokemonSelection({ selectedImage, selectedName, currentPlayer }, currentPlayer);
     let newCurrentPlayer = currentPlayer < 2 ? currentPlayer + 1 : currentPlayer;
     setCurrentPlayer(newCurrentPlayer);
     setSearchDone(false);

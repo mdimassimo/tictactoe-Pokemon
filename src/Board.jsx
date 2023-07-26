@@ -13,14 +13,16 @@ function Square ({ value, clickSquare }) {
 }
 
 export default function Board() {
-  const [ squares, setSquares ] = useState(Array(9).fill(null));
-  const { playerPokemon1, playerPokemon2, resetGame,dropConfetti } = useContext(PokemonContext);
+  const [ squares, setSquares ] = useState(Array(9).fill(null));//--> registering pokemon moves
+  const [ movePlayers, setMovePlayers ] = useState(Array(9).fill(null));//--> registering player moves
+  const { playerPokemon1, playerPokemon2, resetGame, dropConfetti } = useContext(PokemonContext);
   const [ player1Next, setPlayer1Next ] = useState(true);
   const [ tie, setTie ] = useState(false);
   const showBoard = Object.keys(playerPokemon2).length > 0;
-  const winner = calculateWinner(squares);
+  const winner = calculateWinner(squares, movePlayers);
   let status;
   let nameWinner;
+
   if (winner) {
     nameWinner = winner == playerPokemon1.selectedImage ? playerPokemon1.selectedName : playerPokemon2.selectedName;
     status = "Ganador: " + nameWinner;
@@ -32,18 +34,22 @@ export default function Board() {
   }
 
   function handleClick(i) {
-    if (squares[i] || calculateWinner(squares)) {
+    if (squares[i] || calculateWinner(squares, movePlayers)) {
       return;
     }
     const nextSquares = squares.slice();//-> Copy of squares (immutability)
+    const nextMovePlayers = movePlayers.slice();//-> Copy of squares (immutability)
     if (player1Next) {
       nextSquares[i] = playerPokemon1.selectedImage;
+      nextMovePlayers[i] = playerPokemon1.currentPlayer;
       setPlayer1Next(false);
     } else {
       nextSquares[i] = playerPokemon2.selectedImage;
+      nextMovePlayers[i] = playerPokemon2.currentPlayer;
       setPlayer1Next(true);
     }
     setSquares(nextSquares);    
+    setMovePlayers(nextMovePlayers);    
     const boardComplete = nextSquares.find(square => square == null);
     if(boardComplete === undefined){
       setTie(true);
@@ -53,8 +59,11 @@ export default function Board() {
   function handleRestartGame() {
     resetGame(); 
     setSquares(Array(9).fill(null));
+    setMovePlayers(Array(9).fill(null));
     setPlayer1Next(true);
     setTie(false);
+    setPlayer1Move(0)
+    setPlayer2Move(0)
   }
 
   useEffect(()=>{
@@ -105,7 +114,7 @@ export default function Board() {
     )
   );
 
-function calculateWinner(squares) {
+function calculateWinner(squares, movePlayers) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -118,7 +127,9 @@ function calculateWinner(squares) {
   ];
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) { //--> squares[a], squares[b] and squares[c] have the same value (either 'X'[pokemon1] or 'O'[pokemon2])
+    let ticTacToe = squares[a] && squares[a] === squares[b] && squares[a] === squares[c];
+    let isSamePlayer = movePlayers[a] && movePlayers[a] === movePlayers[b] && movePlayers[a] === movePlayers[c];
+    if (ticTacToe && isSamePlayer) { //--> squares[a], squares[b] and squares[c] have the same value (either 'X'[pokemon1] or 'O'[pokemon2])
       return squares[a];
     }
   }
